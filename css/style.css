@@ -14,6 +14,18 @@ body {
     overflow: hidden;
 }
 
+/* 
+Logo ocean
+*/
+
+#logo-ocean {
+    position: absolute;
+    width: 84px;
+    height: 20px;
+    left: 136px;
+    top: 45px;
+}
+
 /*
 hour&minutes
 */
@@ -23,7 +35,6 @@ hour&minutes
     width: 65%;
     height: 25%;
     top: 30%;
-    border: solid;
     margin: 0 auto;
 }
 
@@ -54,16 +65,13 @@ string day & month
     width: 55%;
     height: 10%;
     top: 60%;
-    /* left: 24%; */
     margin: 0 auto;
-    border: solid;
 }
 
 #str-day {
     font-size: 150%;
     color: white;
     text-align: center;
-    /* float: left; */
 }
 
 @media screen and (-tizen-geometric-shape: circle) {
