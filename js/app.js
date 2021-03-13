@@ -21,8 +21,7 @@
         battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery,
         interval,
         BACKGROUND_URL = "url('./images/bg.jpg')",
-        arrDay = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"],
-        arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        arrDay = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
 
     /**
      * Updates the date and sets refresh callback on the next day.
@@ -35,8 +34,7 @@
             strDay = document.getElementById("str-day"),
             strFullDate,
             getDay = datetime.getDay(),
-            getDate = datetime.getDate(),
-            getMonth = datetime.getMonth();
+            getDate = datetime.getDate();
 
         // Check the update condition.
         // if prevDate is '0', it will always update the date.

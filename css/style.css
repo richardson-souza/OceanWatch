@@ -14,35 +14,17 @@ body {
     overflow: hidden;
 }
 
-#battery-rec {
-    position: absolute;
-    width: 10%;
-    height: 5%;
-    top: 20%;
-    left: 63%;
-    border: solid 2px white;
-}
-
-#battery-fill {
-    position: absolute;
-    width: 11%;
-    height: 6%;
-    top: 20%;
-    left: 63%;
-    z-index: 10;
-    background-color: white;
-}
-
 /*
 hour&minutes
 */
 
 #rec-time {
-    position: absolute;
-    width: 80%;
-    height: 30%;
-    top: 25%;
-    left: 12%;
+    position: relative;
+    width: 65%;
+    height: 25%;
+    top: 30%;
+    border: solid;
+    margin: 0 auto;
 }
 
 #str-hours {
@@ -63,28 +45,25 @@ hour&minutes
     color: white;
 }
 
-#str-ampm {
-    font-size: 200%;
-    color: white;
-    padding-top: 20%;
-}
-
-
 /*
 string day & month
 */
 
 #rec-string-time {
     position: absolute;
-    height: 30%;
+    width: 55%;
+    height: 10%;
     top: 60%;
-    left: 24%;
+    /* left: 24%; */
+    margin: 0 auto;
+    border: solid;
 }
 
 #str-day {
-    font-size: 250%;
+    font-size: 150%;
     color: white;
-    float: left;
+    text-align: center;
+    /* float: left; */
 }
 
 @media screen and (-tizen-geometric-shape: circle) {
