@@ -21,8 +21,8 @@
         battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery,
         interval,
         BACKGROUND_URL = "url('./images/bg.jpg')",
-        arrDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        arrDay = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"],
+        arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
     /**
      * Updates the date and sets refresh callback on the next day.
@@ -66,8 +66,7 @@
             getDate = "0" + getDate;
         }
 
-        strFullDate = arrDay[getDay] + " " + getDate + " " + arrMonth[getMonth];
-        strDay.innerHTML = strFullDate;
+        strDay.innerHTML = arrDay[getDay];
 
         // If an updateDate timer already exists, clear the previous timer.
         if (timerUpdateDate) {
@@ -88,7 +87,6 @@
         var strHours = document.getElementById("str-hours"),
             strConsole = document.getElementById("str-console"),
             strMinutes = document.getElementById("str-minutes"),
-            strAmpm = document.getElementById("str-ampm"),
             datetime = tizen.time.getCurrentDateTime(),
             hour = datetime.getHours(),
             minute = datetime.getMinutes();
@@ -96,13 +94,8 @@
         strHours.innerHTML = hour;
         strMinutes.innerHTML = minute;
 
-        if (hour < 12) {
-            strAmpm.innerHTML = "AM";
-            if (hour < 10) {
-                strHours.innerHTML = "0" + hour;
-            }
-        } else {
-            strAmpm.innerHTML = "PM";
+        if (hour < 10) {
+            strHours.innerHTML = "0" + hour;
         }
 
         if (minute < 10) {
