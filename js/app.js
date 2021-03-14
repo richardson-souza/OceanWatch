@@ -21,6 +21,7 @@
         battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery,
         interval,
         BACKGROUND_URL = "url('./images/bg.jpg')",
+        BACKGROUND2_URL = "url('./images/bg2.jpg')",
         arrDay = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
 
     /**
@@ -124,6 +125,7 @@
     function initDigitalWatch() {
         flagDigital = true;
         document.getElementById("digital-body").style.backgroundImage = BACKGROUND_URL;
+        document.getElementById("rec-bnt-news").style.display = "none";
         interval = setInterval(updateTime, 500);
     }
 
@@ -144,11 +146,14 @@
      * @private
      */
     function getBatteryState() {
-        var batteryLevel = Math.floor(battery.level * 10),
-            batteryFill = document.getElementById("battery-fill");
+        /* var batteryLevel = Math.floor(battery.level * 10), */
+        var batteryLevel = Math.floor(battery.level * 100),
 
-        batteryLevel = batteryLevel + 1;
-        batteryFill.style.width = batteryLevel + "%";
+        batteryLevel = batteryLevel;
+
+        if (batteryLevel < 50) {
+            document.getElementById("digital-body").style.backgroundImage = BACKGROUND2_URL;
+        }
     }
 
     /**
@@ -170,6 +175,8 @@
         battery.addEventListener("chargingtimechange", getBatteryState);
         battery.addEventListener("dischargingtimechange", getBatteryState);
         battery.addEventListener("levelchange", getBatteryState);
+
+
 
         // add eventListener for timetick
         window.addEventListener("timetick", function() {
@@ -198,6 +205,16 @@
         // add event listeners to update watch screen when the time zone is changed.
         tizen.time.setTimezoneChangeListener(function() {
             updateWatch();
+        });
+
+        // show or hide news button
+        document.getElementById("digital-body").addEventListener("click", function() {
+            var bntNews = document.getElementById("rec-bnt-news");
+            if (bntNews.style.display === "none") {
+                bntNews.style.display = "block";
+            } else {
+                bntNews.style.display = "none";
+            }
         });
     }
 
