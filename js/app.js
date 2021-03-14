@@ -22,6 +22,7 @@
         interval,
         BACKGROUND_URL = "url('./images/bg.jpg')",
         BACKGROUND2_URL = "url('./images/bg2.jpg')",
+        BACKGROUND3_URL = "url('./images/bg3.jpg')",
         arrDay = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
 
     /**
@@ -126,6 +127,8 @@
         flagDigital = true;
         document.getElementById("digital-body").style.backgroundImage = BACKGROUND_URL;
         document.getElementById("rec-bnt-news").style.display = "none";
+        document.getElementById("rec-event-title").style.display = "none";
+        document.getElementById("rec-string-datetime").style.display = "none";
         interval = setInterval(updateTime, 500);
     }
 
@@ -147,13 +150,19 @@
      */
     function getBatteryState() {
         /* var batteryLevel = Math.floor(battery.level * 10), */
-        var batteryLevel = Math.floor(battery.level * 100),
+        var batteryLevel = Math.floor(battery.level * 100);
+        var bg = document.getElementById("digital-body");
 
         batteryLevel = batteryLevel;
 
-        if (batteryLevel < 50) {
-            document.getElementById("digital-body").style.backgroundImage = BACKGROUND2_URL;
+        if (batteryLevel <= 50) {
+            bg.style.backgroundImage = BACKGROUND2_URL;
         }
+
+        if (batteryLevel > 50 && bg.style.backgroundImage === BACKGROUND2_URL) {
+            bg.style.backgroundImage = BACKGROUND_URL;
+        }
+
     }
 
     /**
@@ -175,8 +184,6 @@
         battery.addEventListener("chargingtimechange", getBatteryState);
         battery.addEventListener("dischargingtimechange", getBatteryState);
         battery.addEventListener("levelchange", getBatteryState);
-
-
 
         // add eventListener for timetick
         window.addEventListener("timetick", function() {
@@ -210,10 +217,42 @@
         // show or hide news button
         document.getElementById("digital-body").addEventListener("click", function() {
             var bntNews = document.getElementById("rec-bnt-news");
-            if (bntNews.style.display === "none") {
-                bntNews.style.display = "block";
+            var textContentBntNews = document.getElementById("bnt-news").textContent;
+            if (textContentBntNews === "Novidades") {
+                if (bntNews.style.display === "none") {
+                    bntNews.style.display = "block";
+                } else {
+                    bntNews.style.display = "none";
+                }
+            }
+        });
+
+        //
+        document.getElementById("bnt-news").addEventListener("click", function() {
+            var bntNews = document.getElementById("bnt-news");
+            var time = document.getElementById("rec-time");
+            var strTime = document.getElementById("rec-string-time");
+            var strEventTitle = document.getElementById("str-event-title");
+            var strEventDatetime = document.getElementById("str-datetime");
+
+            if (bntNews.textContent === "Novidades") {
+                time.style.display = "none";
+                strTime.style.display = "none";
+                bntNews.textContent = "Voltar";
+                strEventTitle.innerHTML = "Laboratório com Pandas e Python";
+                strEventDatetime.innerHTML = "30/03/21 - 16:00";
+                document.getElementById("digital-body").style.backgroundImage = BACKGROUND2_URL;
+                document.getElementById("str-site").innerHTML = "Acesse: www.oceanbrasil.com";
+                document.getElementById("rec-event-title").style.display = "block";
+                document.getElementById("rec-string-datetime").style.display = "block";
             } else {
-                bntNews.style.display = "none";
+                time.style.display = "block";
+                strTime.style.display = "block";
+                bntNews.textContent = "Novidades";
+                bntNews.style.display = "block";
+                document.getElementById("rec-ev\ent-title").style.display = "none";
+                document.getElementById("rec-string-datetime").style.display = "none";
+                document.getElementById("digital-body").style.backgroundImage = BACKGROUND_URL;
             }
         });
     }

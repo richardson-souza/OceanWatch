@@ -23,7 +23,7 @@ Logo ocean
     width: 84px;
     height: 20px;
     left: 136px;
-    top: 36px;
+    top: 46px;
 }
 
 /*
@@ -32,15 +32,16 @@ hour&minutes
 
 #rec-time {
     position: relative;
-    width: 62%;
+    width: 64%;
     height: 30%;
-    padding: 3px;
+    padding: 2px;
     top: 26%;
     margin: 0 auto;
 }
 
 #str-hours, #str-console, #str-minutes{
     font-size: 550%;
+    font-weight: bold;
     float: left;
     color: white;
     text-shadow: 0px 6.06742px 6.06742px rgba(0, 0, 0, 0.1);
@@ -49,7 +50,7 @@ hour&minutes
 #rec-string-time {
     position: relative;
     width: 54%;
-    top: 22%;
+    top: 24%;
     padding: 3px;
 }
 
@@ -76,6 +77,47 @@ hour&minutes
     border: none;
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+#rec-event-title {
+    position: relative;
+    width: 70%;
+    height: 20%;
+    padding: 3px;
+    top: 20%;
+    margin: 0 auto;
+}
+
+#str-event-title {
+    font-size: 184%;
+    color: white;
+    text-align: center;
+
+    text-shadow: 0px 6.06742px 6.06742px rgba(0, 0, 0, 0.1);
+}
+
+#rec-string-datetime {
+    position: relative;
+    width: 62%;
+    top: 26%;
+    padding: 3px;
+    margin: 0 auto;
+}
+
+#str-datetime {
+    font-size: 130%;
+    color: white;
+    text-align: center;
+}
+
+#str-site {
+    font-size: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+
+    text-shadow: 0px 6.06742px 6.06742px rgba(0, 0, 0, 0.1);
+}
+
 
 @media screen and (-tizen-geometric-shape: circle) {
 #str-hours {
