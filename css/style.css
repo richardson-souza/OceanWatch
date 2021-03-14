@@ -46,28 +46,6 @@ hour&minutes
     text-shadow: 0px 6.06742px 6.06742px rgba(0, 0, 0, 0.1);
 }
 
-/* #str-hours {
-    font-size: 550%;
-    float: left;
-    color: white;
-}
-
-#str-console {
-    font-size: 550%;
-    float: left;
-    color: white;
-}
-
-#str-minutes {
-    font-size: 550%;
-    float: left;
-    color: white;
-} */
-
-/*
-string day & month
-*/
-
 #rec-string-time {
     position: relative;
     width: 54%;
@@ -98,15 +76,6 @@ string day & month
     border: none;
     background-color: rgba(255, 255, 255, 0.2);
 }
-
-/* #str-news {
-    padding: 5px 0;
-    font-size: 150%;
-    color: white;
-    background: #fff;
-    opacity: 0.75;
-    text-align: center;
-} */
 
 @media screen and (-tizen-geometric-shape: circle) {
 #str-hours {
